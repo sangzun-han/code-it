@@ -1,0 +1,23 @@
+header {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inputFlex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

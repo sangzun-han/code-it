@@ -1,1 +1,1 @@
-console.log('하이하이');
+console.log(20 - 5);
