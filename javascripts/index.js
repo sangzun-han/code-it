@@ -1,1 +1,1 @@
-console.log(20 - 5);
+console.log((3 + 27) * 12 ** (5 % 3));
