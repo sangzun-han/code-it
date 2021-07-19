@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Page
 from .forms import PageForm
 
@@ -20,16 +20,11 @@ def info(request):
 
 
 def page_create(request):
-    if request.method == 'POST':  # 만약 요청 방식이 POST라면
-        new_page = Page(  # 입력된 데이터를 가져와서 Page 데이터 모델을 만들고
-            title=request.POST['title'],
-            content=request.POST['content'],
-            feeling=request.POST['feeling'],
-            score=request.POST['score'],
-            dt_created=request.POST['dt_created']
-        )
-        new_page.save()  # 데이터베이스에 저장한 후
-    else:  # 만약 요청 방식이 GET이라면
-        form = PageForm()  # 새로운 form을 만들고 (빈 폼)
-        return render(request, 'diary/page_form.html', {'form': form})
-        # 템플릿으로 보내 렌더해서 결과로 돌려줍니다.
+    if request.method == 'POST':
+        form = PageForm(request.POST)
+        if form.is_valid():
+            new_page = form.save()
+            return redirect('page-detail', page_id=new_page.id)
+    else:
+        form = PageForm()
+    return render(request, 'diary/page_form.html', {'form': form})
