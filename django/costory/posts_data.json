@@ -1,0 +1,12 @@
+[
+  {
+    "model": "posts.post",
+    "pk": 9,
+    "fields": {
+      "title": "title_data_01",
+      "content": "content_data_01",
+      "dt_created": "2020-12-17T06:36:06.781Z",
+      "dt_modified": "2020-12-17T06:36:06.781Z"
+    }
+  }
+]
