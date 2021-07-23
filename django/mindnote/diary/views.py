@@ -1,13 +1,19 @@
 from django.shortcuts import render, redirect
 from .models import Page
 from .forms import PageForm
-
+from django.core.paginator import Paginator
 # Create your views here.
 
 
 def page_list(request):
-    object_list = Page.objects.all()  # 데이터 조회
-    return render(request, 'diary/page_list.html', {'object_list': object_list})
+    object_list = Page.objects.all()
+    paginator = Paginator(object_list, 8)
+    curr_page_num = request.GET.get('page')
+    if curr_page_num is None:
+        curr_page_num = 1
+    page = paginator.page(curr_page_num)
+    # 이제는 페이지를 넘겨줍니다.
+    return render(request, 'diary/page_list.html', {'page': page})
 
 
 def page_detail(request, page_id):
