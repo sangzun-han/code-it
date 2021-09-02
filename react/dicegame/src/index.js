@@ -25,13 +25,13 @@ ReactDOM.render(
     <App />
     <h1 id='title'>가위바위보</h1>
     <h2>{getResult(me, other)}</h2>
-    <button onClick={handleClick} class='hand'>
+    <button onClick={handleClick} className='hand'>
       가위
     </button>
-    <button onClick={handleClick} class='hand'>
+    <button onClick={handleClick} className='hand'>
       바위
     </button>
-    <button onClick={handleClick} class='hand'>
+    <button onClick={handleClick} className='hand'>
       보
     </button>
   </>,
